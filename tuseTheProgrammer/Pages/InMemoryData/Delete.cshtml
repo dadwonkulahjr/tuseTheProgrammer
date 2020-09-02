@@ -1,0 +1,19 @@
+﻿@page "{id}"
+@model tuseTheProgrammer.Pages.InMemoryData.DeleteModel
+@{
+    ViewData["Title"] = "Delete Existing Employee";
+}
+
+<h1>Delete Confirmation</h1>
+<div class="alert alert-danger alert-dismissible">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <h3>
+        Delete existing employee @Model.Employee.Name ??
+    </h3>
+    <div>
+        <form method="post">
+            <button type="submit" class="btn btn-danger">Yes</button>
+            <a asp-page="/InMemoryData/Index" class="btn btn-outline-secondary">No</a>
+        </form>
+    </div>
+</div>

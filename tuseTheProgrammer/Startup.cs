@@ -1,14 +1,18 @@
 using System;
 using System.Collections.Generic;
+using System.Data.Common;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Routing;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using tuseTheProgrammer.Models;
+using tuseTheProgrammer.Services;
 
 namespace tuseTheProgrammer
 {
@@ -25,6 +29,13 @@ namespace tuseTheProgrammer
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+            services.AddSingleton<IRepository, CustomImplementation>();
+            //services.AddDbContextPool<SQLDbContext>(optionsAction: options =>
+            //{
+            //    options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
+            //});
+
+
             services.Configure<RouteOptions>(options =>
             {
                 options.AppendTrailingSlash = true;

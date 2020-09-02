@@ -1,0 +1,65 @@
+﻿@page
+
+@model tuseTheProgrammer.Pages.InMemoryData.CreateModel
+@{
+    ViewData["Title"] = "Create New Employee";
+
+}
+
+<div class="alert alert-info alert-dismissible">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>Success!</strong> <p>Create New Employee</p>
+</div>
+<h1>Create</h1>
+<form method="post">
+    <div class="row form-group">
+        <label asp-for="@Model.Employee.Name" class="col-form-label col-sm-2"></label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" asp-for="Employee.Name" />
+        </div>
+    </div>
+    <div class="row form-group">
+        <label asp-for="@Model.Employee.Email" class="col-form-label col-sm-2"></label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" asp-for="Employee.Email" />
+        </div>
+    </div>
+
+    <div class="row form-group">
+        <label asp-for="@Model.Employee.Salary" class="col-form-label col-sm-2"></label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" asp-for="@Model.Employee.Salary" />
+        </div>
+    </div>
+    <div class="row form-group">
+        <label asp-for="@Model.Employee.Gender.Sex" class="col-form-label col-sm-2"></label>
+        <div class="col-sm-10">
+            <select asp-for="@Model.Employee.Gender.Sex" asp-items="Html.GetEnumSelectList<Sex>()" class="form-control">
+                <option value="">Select gender</option>
+            </select>
+        </div>
+    </div>
+    <div class="row form-group">
+        <label asp-for="@Model.Employee.Department" class="col-form-label col-sm-2"></label>
+        <div class="col-sm-10">
+            <select asp-for="@Model.Employee.Department.Dept" asp-items="Html.GetEnumSelectList<Dept>()" class="form-control">
+                <option value="">Select your department</option>
+            </select>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-10">
+            @*  Come back to do some work soon!*@
+            <button type="submit" class="btn btn-outline-success">Update</button>
+            <a asp-page="/InMemoryData/Index" class="btn btn-outline-secondary">
+                Cancel
+            </a>
+        </div>
+    </div>
+    @section Scripts
+    {
+        <script>
+            <partial name="_ValidationScriptsPartial" />
+        </script>
+    }
+</form>

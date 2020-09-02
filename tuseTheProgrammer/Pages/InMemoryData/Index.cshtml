@@ -1,0 +1,61 @@
+﻿@page "listOfEmployees"
+@model tuseTheProgrammer.Pages.InMemoryData.IndexModel
+@{
+    ViewData["Title"] = "List Of Employees";
+   
+}
+<div class="row">
+    <div class="ml-auto mb-2">
+        <a class="btn btn-outline-success" asp-page="Create">
+            Create New Employee
+        </a>
+    </div>
+</div>
+<hr />
+
+<div class="table-responsive">
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Salary</th>
+                <th>Sex</th>
+                <th>Department Name</th>
+                <th>Department Id</th>
+                <th colspan="2">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var employee in Model.Employees)
+            {
+                int enumValue = (int)employee.Department.Dept;
+            <tr>
+                <td>
+                    @employee.Name
+                </td>
+                <td>
+                    @employee.Email
+                </td>
+                <td>
+                    @employee.Salary.ToString("c")
+                </td>
+                <td>
+                    @employee.Gender.Sex
+                </td>
+                <td>
+                    @employee.Department.Dept
+                </td>
+                <td>
+                    @enumValue
+                </td>
+                <td>
+                    <a class="btn btn-outline-secondary mt-2" asp-route-id="@employee.Id" asp-page="/InMemoryData/Details">Details</a>
+                    <a asp-route-id="@employee.Id" class="btn btn-outline-primary mt-2" asp-page="/InMemoryData/Edit">Edit</a>
+                    <a class="btn btn-danger mt-2 text-white" asp-route-id="@employee.Id" asp-page="/InMemoryData/Delete">Delete</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
