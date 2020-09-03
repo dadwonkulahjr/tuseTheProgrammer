@@ -29,7 +29,7 @@
         <tbody>
             @foreach (var employee in Model.Employees)
             {
-                int enumValue = (int)employee.Department.Dept;
+             
             <tr>
                 <td>
                     @employee.Name
@@ -38,16 +38,16 @@
                     @employee.Email
                 </td>
                 <td>
-                    @employee.Salary.ToString("c")
+                    @employee.Salary.Value.ToString("c")
                 </td>
                 <td>
-                    @employee.Gender.Sex
+                   
                 </td>
                 <td>
-                    @employee.Department.Dept
+                  
                 </td>
                 <td>
-                    @enumValue
+                    @employee.Department.Dept.Value
                 </td>
                 <td>
                     <a class="btn btn-outline-secondary mt-2" asp-route-id="@employee.Id" asp-page="/InMemoryData/Details">Details</a>
@@ -58,4 +58,5 @@
             }
         </tbody>
     </table>
+
 </div>

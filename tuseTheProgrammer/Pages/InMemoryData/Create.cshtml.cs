@@ -26,8 +26,12 @@ namespace tuseTheProgrammer.Pages.InMemoryData
 
         public IActionResult OnPost()
         {
-            Employee = _repository.AddNewEmployee(Employee);
-            return RedirectToPage("Index");
+            if (ModelState.IsValid)
+            {
+                Employee = _repository.AddNewEmployee(Employee);
+                return RedirectToPage("Index");
+            }
+            return Page();
         }
     }
 }

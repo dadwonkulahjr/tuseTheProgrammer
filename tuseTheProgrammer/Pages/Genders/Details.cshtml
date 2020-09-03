@@ -1,0 +1,37 @@
+﻿@page "{id}"
+@model tuseTheProgrammer.Pages.Genders.DetailsModel
+@{
+    ViewData["Title"] = "Gender Details";
+}
+
+<div class="alert alert-info alert-dismissible">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>Success!</strong> Gender details...
+</div>
+<hr />
+<h1 class="text-info">
+    Details
+</h1>
+<hr />
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Gender</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                @Model.Gender.Id.ToString()
+            </td>
+            <td>
+                @Model.Gender.Sex
+            </td>
+        </tr>
+    </tbody>
+</table>
+<a asp-page="Index" class="btn btn-outline-secondary">
+    Back
+</a>
+

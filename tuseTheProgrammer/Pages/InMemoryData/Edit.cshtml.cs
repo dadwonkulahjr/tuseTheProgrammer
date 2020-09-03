@@ -29,13 +29,21 @@ namespace tuseTheProgrammer.Pages.InMemoryData
         }
         public IActionResult OnPost()
         {
-            Employee employee = _repository.UpdateExistingEmployee(Employee);
-            if(employee == null)
+            if (ModelState.IsValid)
             {
-                return RedirectToPage("/ErrorHandler/PageNotFound");
+                Employee employee = _repository.UpdateExistingEmployee(Employee);
+                if (employee == null)
+                {
+                    return RedirectToPage("/ErrorHandler/PageNotFound");
+                }
+                else
+                {
+                    return RedirectToPage("Index");
+                }
             }
 
-            return RedirectToPage("Index");
+            return Page();
+           
         }
     }
 }

@@ -22,16 +22,20 @@
 <h1>Edit</h1>
 <form method="post">
     <input hidden="hidden" asp-for="@Model.Employee.Id" />
+    <div asp-validation-summary="All" class="text-danger">
+    </div>
     <div class="row form-group">
         <label asp-for="@Model.Employee.Name" class="col-form-label col-sm-2"></label>
         <div class="col-sm-10">
             <input type="text" class="form-control" asp-for="Employee.Name" />
+            <span asp-validation-for="@Model.Employee.Name" class="text-danger"></span>
         </div>
     </div>
     <div class="row form-group">
         <label asp-for="@Model.Employee.Email" class="col-form-label col-sm-2"></label>
         <div class="col-sm-10">
             <input type="text" class="form-control" asp-for="Employee.Email" />
+            <span asp-validation-for="@Model.Employee.Email" class="text-danger"></span>
         </div>
     </div>
 
@@ -39,14 +43,16 @@
         <label asp-for="@Model.Employee.Salary" class="col-form-label col-sm-2"></label>
         <div class="col-sm-10">
             <input type="text" class="form-control" asp-for="@Model.Employee.Salary" />
+            <span asp-validation-for="@Model.Employee.Salary" class="text-danger"></span>
         </div>
     </div>
     <div class="row form-group">
         <label asp-for="@Model.Employee.Gender.Sex" class="col-form-label col-sm-2"></label>
         <div class="col-sm-10">
-           <select asp-for="@Model.Employee.Gender.Sex" asp-items="Html.GetEnumSelectList<Sex>()" class="form-control">
-               <option value="">Select gender</option>
-           </select>
+            <select asp-for="@Model.Employee.Gender.Sex" asp-items="Html.GetEnumSelectList<Sex>()" class="form-control">
+                <option value="">Select gender</option>
+            </select>
+            <span asp-validation-for="@Model.Employee.Gender" class="text-danger"></span>
         </div>
     </div>
     <div class="row form-group">
@@ -55,6 +61,7 @@
             <select asp-for="@Model.Employee.Department.Dept" asp-items="Html.GetEnumSelectList<Dept>()" class="form-control">
                 <option value="">Select your department</option>
             </select>
+            <span asp-validation-for="@Model.Employee.Department" class="text-danger"></span>
         </div>
     </div>
     <div class="row form-group">
@@ -67,10 +74,8 @@
         </div>
 
     </div>
-    @section Scripts
-    { 
-    <script>
-         <partial name="_ValidationScriptsPartial" />
-     </script>
-    }
+    
+ @section Scripts{ 
+   <partial name="_ValidationScriptsPartial" />
+ }
 </form>
