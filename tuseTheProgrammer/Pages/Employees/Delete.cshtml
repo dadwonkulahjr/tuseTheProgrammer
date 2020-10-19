@@ -1,0 +1,19 @@
+﻿@page "{id}"
+@model tuseTheProgrammer.Pages.Employees.DeleteModel
+@{
+    ViewData["Title"] = "Delete Existing Employee";
+}
+<h1 class="text-info">Delete Confirmation</h1>
+<hr />
+<div class="alert alert-danger">
+    <h3>
+        Delete existing gender @Model.Employee.Name??
+    </h3>
+    <div>
+        <form method="post">
+            <input hidden="hidden" asp-for="@Model.Employee.Id" />
+            <button type="submit" class="btn btn-danger">Yes</button>
+            <a asp-page="Index" class="btn btn-outline-secondary">No</a>
+        </form>
+    </div>
+</div>

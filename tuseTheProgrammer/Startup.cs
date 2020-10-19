@@ -29,7 +29,7 @@ namespace tuseTheProgrammer
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
-            //services.AddScoped<IRepository, SQLDbContextRepository>();
+            services.AddScoped<IRepository, CustomImplementation>();
             services.AddDbContextPool<SQLDbContextDataAccess>(optionsAction: options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));

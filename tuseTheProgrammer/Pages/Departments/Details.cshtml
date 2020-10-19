@@ -1,0 +1,37 @@
+﻿@page "{id}"
+@model tuseTheProgrammer.Pages.Departments.DetailsModel
+@{
+    ViewData["Title"] = "Department Details";
+}
+
+
+<div class="alert alert-info alert-dismissible">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>Success!</strong> Department details...
+</div>
+<hr />
+<h1 class="text-info">
+    Details
+</h1>
+<hr />
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Department Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                @Model.Department.Id.ToString()
+            </td>
+            <td>
+                @Model.Department.Dept
+            </td>
+        </tr>
+    </tbody>
+</table>
+<a asp-page="Index" class="btn btn-outline-secondary">
+    Back
+</a>

@@ -17,7 +17,7 @@ namespace tuseTheProgrammer.Models
         public string Email { get; set; }
         [Required(ErrorMessage = "Salary is mandatory!")]
         [Column(TypeName ="decimal(18,0)")]
-        public decimal? Salary { get; set; }
+        public decimal Salary { get; set; }
         [Required(ErrorMessage = "Department is mandatory!")]
         [Display(Name = "Occupation")]
         [ForeignKey("DepartmentId")]

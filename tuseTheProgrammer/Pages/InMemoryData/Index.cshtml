@@ -38,16 +38,13 @@
                     @employee.Email
                 </td>
                 <td>
-                    @employee.Salary.Value.ToString("c")
+                    @employee.Salary.ToString("c")
                 </td>
                 <td>
-                   
+                    @employee.Gender.Sex
                 </td>
                 <td>
-                  
-                </td>
-                <td>
-                    @employee.Department.Dept.Value
+                    @employee.Department.Dept
                 </td>
                 <td>
                     <a class="btn btn-outline-secondary mt-2" asp-route-id="@employee.Id" asp-page="/InMemoryData/Details">Details</a>

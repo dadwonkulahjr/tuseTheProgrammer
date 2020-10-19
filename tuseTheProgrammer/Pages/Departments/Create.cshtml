@@ -1,0 +1,28 @@
+﻿@page
+@model tuseTheProgrammer.Pages.Departments.CreateModel
+@{
+    ViewData["Title"] = "Create New Department";
+}
+
+<div class="alert alert-info alert-dismissible">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>Success!</strong> Add your department information
+</div>
+
+<form method="post">
+    <input hidden="hidden" asp-for="@Model.Department.Id" />
+    <div class="row form-group">
+        <label asp-for="@Model.Department.Dept" class="col-form-label col-md-2"></label>
+        <div class="col-sm-10">
+            <select asp-for="@Model.Department.Dept" class="custom-select-sm form-control" asp-items="Html.GetEnumSelectList<Dept>()">
+                <option value="">Select department</option>
+            </select>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-10">
+            <button class="btn btn-outline-success" type="submit">Add</button>
+            <a asp-page="Index" class="btn btn-outline-secondary">Back</a>
+        </div>
+    </div>
+</form>

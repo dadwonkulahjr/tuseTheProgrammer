@@ -1,0 +1,74 @@
+﻿@page
+@model tuseTheProgrammer.Pages.Employees.CreateModel
+@{
+    ViewData["Title"] = "Create New Employee";
+}
+
+<div class="alert alert-info alert-dismissible">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong>Success!</strong> Add New Employee
+</div>
+<hr />
+<h1 class="text-info">Create</h1>
+<hr />
+<form method="post">
+    <input hidden="hidden" asp-for="@Model.Employee.Id" />
+    <input hidden="hidden" asp-for="@Model.Employee.Department.Id" />
+    <input hidden="hidden" asp-for="@Model.Employee.Gender.Id" />
+    <div class="row form-group">
+        <label asp-for="@Model.Employee.Name" class="col-form-label col-md-2"></label>
+        <div class="col-sm-10">
+            <input asp-for="@Model.Employee.Name" class="form-control" />
+            <span asp-validation-for="@Model.Employee.Name" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row form-group">
+        <label asp-for="@Model.Employee.Email" class="col-form-label col-md-2"></label>
+        <div class="col-sm-10">
+            <input asp-for="@Model.Employee.Email" class="form-control" />
+            <span asp-validation-for="@Model.Employee.Email" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row form-group">
+        <label asp-for="@Model.Employee.Salary" class="col-form-label col-md-2"></label>
+        <div class="col-sm-10">
+            <input asp-for="@Model.Employee.Salary" class="form-control" />
+            <span asp-validation-for="@Model.Employee.Salary" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row form-group">
+        <label asp-for="@Model.Employee.Department.Dept" class="col-form-label col-md-2"></label>
+        <div class="col-sm-10">
+            <select asp-for="@Model.Employee.Department.Dept" class="custom-select-sm form-control" asp-items="Html.GetEnumSelectList<Dept>()">
+                <option value="">Select department</option>
+            </select>
+            <span asp-validation-for="@Model.Employee.Department.Dept" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row form-group">
+        <label asp-for="@Model.Employee.Gender.Sex" class="col-form-label col-md-2"></label>
+        <div class="col-sm-10">
+            <select asp-for="@Model.Employee.Gender.Sex" class="custom-select-sm form-control" asp-items="Html.GetEnumSelectList<Sex>()">
+                <option value="">Select gender</option>
+            </select>
+            <span asp-validation-for="@Model.Employee.Gender.Sex" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="row form-group">
+        <div class="col-sm-10">
+            <button type="submit" class="btn btn-outline-success">Add</button>
+            <a class="btn btn-outline-secondary">
+                Back
+            </a>
+        </div>
+    </div>
+    @section Scripts{
+        <partial name="_ValidationScriptsPartial" />
+    }
+</form>
+
+
+
+
+
+

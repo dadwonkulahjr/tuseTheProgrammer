@@ -1,0 +1,92 @@
+﻿@page
+
+@model tuseTheProgrammer.Pages.Employees.IndexModel
+@{
+    ViewData["Title"] = "List Of Employees";
+}
+
+@if (!Model.Employee.Any())
+{
+    <div class="alert alert-info alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>Hey!</strong> No record is avaliable now
+    </div>
+    <hr />
+    <div class="row">
+        <div class="ml-auto">
+            <a asp-page="Create" class="btn btn-outline-primary">
+                Add New Employee
+            </a>
+        </div>
+    </div>
+}
+else
+{
+
+
+    <h1 class="text-info">Employees</h1>
+    <hr />
+    <div class="alert alert-info alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>Success!</strong> List of all employees...
+    </div>
+    <hr />
+    <hr />
+    <div class="row">
+        <div class="ml-auto">
+            <a asp-page="Create" class="btn btn-outline-primary">
+                Add New Employee
+            </a>
+        </div>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-hover table-striped">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Salary</th>
+                    <th>Gender</th>
+                    <th>Department Name</th>
+                    <th>Department Id</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var employee in Model.Employee)
+                {
+
+                    <tr>
+                        <td>
+                            @employee.Id.ToString()
+                        </td>
+                        <td>
+                            @employee.Name
+                        </td>
+                        <td>
+                            @employee.Email
+                        </td>
+                        <td>
+                            @employee.Salary
+                        </td>
+                        <td>
+                            @employee.Gender.Sex
+                        </td>
+                        <td>
+                            @employee.Department.Dept
+                        </td>
+                        <td>
+                            @employee.Department.Id.ToString()
+                        </td>
+                        <td>
+                            <a class="btn btn-outline-secondary mt-2" asp-route-id="@employee.Id" asp-page="/Employees/Details">Details</a>
+                            <a asp-route-id="@employee.Id" class="btn btn-outline-primary mt-2" asp-page="/Employees/Edit">Edit</a>
+                            <a class="btn btn-danger mt-2 text-white" asp-route-id="@employee.Id" asp-page="/Employees/Delete">Delete</a>
+                        </td>
+
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+}

@@ -58,8 +58,7 @@ namespace tuseTheProgrammer.Services.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal?>("Salary")
-                        .IsRequired()
+                    b.Property<decimal>("Salary")
                         .HasColumnType("decimal(18,0)");
 
                     b.HasKey("Id");

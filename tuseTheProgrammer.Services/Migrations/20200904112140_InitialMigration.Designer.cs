@@ -10,7 +10,7 @@ using tuseTheProgrammer.Services;
 namespace tuseTheProgrammer.Services.Migrations
 {
     [DbContext(typeof(SQLDbContextDataAccess))]
-    [Migration("20200903121944_InitialMigration")]
+    [Migration("20200904112140_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -60,8 +60,7 @@ namespace tuseTheProgrammer.Services.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal?>("Salary")
-                        .IsRequired()
+                    b.Property<decimal>("Salary")
                         .HasColumnType("decimal(18,0)");
 
                     b.HasKey("Id");

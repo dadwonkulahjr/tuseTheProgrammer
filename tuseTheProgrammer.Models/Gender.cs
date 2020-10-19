@@ -13,6 +13,6 @@ namespace tuseTheProgrammer.Models
         [Display(Name = "Gender")]
         [Required(ErrorMessage = "Gender is mandatory!")]
         [Column(TypeName = "nvarchar(20)")]
-        public Sex? Sex { get; set; }
+        public Sex Sex { get; set; }
     }
 }

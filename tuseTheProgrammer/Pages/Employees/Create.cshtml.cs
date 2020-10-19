@@ -4,17 +4,22 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
 using tuseTheProgrammer.Models;
 using tuseTheProgrammer.Services;
 
-namespace tuseTheProgrammer.Pages.Genders
+namespace tuseTheProgrammer.Pages.Employees
 {
     public class CreateModel : PageModel
     {
         private readonly SQLDbContextDataAccess _sQLDbContextDataAccess;
         [BindProperty]
-        public Gender Gender { get; set; }
+        public Employee Employee { get; set; }
+        [BindProperty]
+        public Department Department { get; set; } = new Department();
+        [BindProperty]
+        public Gender Gender { get; set; } = new Gender();
+
+
         public CreateModel(SQLDbContextDataAccess sQLDbContextDataAccess)
         {
             _sQLDbContextDataAccess = sQLDbContextDataAccess;
@@ -23,14 +28,10 @@ namespace tuseTheProgrammer.Pages.Genders
         {
             return Page();
         }
-        //Work on later...
         public IActionResult OnPost()
         {
-            if(Gender == null)
-            {
-                return Redirect("/ErrorHandler/PageNotFound");
-            }
-            _sQLDbContextDataAccess.Genders.Add(Gender);
+            _sQLDbContextDataAccess.Employees.Add(Employee);
+
             _sQLDbContextDataAccess.SaveChanges();
             return RedirectToPage("Index");
         }

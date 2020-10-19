@@ -12,6 +12,7 @@ namespace tuseTheProgrammer.Models
         public int Id { get; set; }
         [Required(ErrorMessage = "Occupation is mandatory!")]
         [Column(TypeName ="nvarchar(20)")]
-        public Dept? Dept { get; set; }
+        [Display(Name ="Department")]
+        public Dept Dept { get; set; }
     }
 }
