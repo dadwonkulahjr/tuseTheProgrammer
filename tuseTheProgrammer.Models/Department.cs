@@ -13,6 +13,6 @@ namespace tuseTheProgrammer.Models
         [Required(ErrorMessage = "Occupation is mandatory!")]
         [Column(TypeName ="nvarchar(20)")]
         [Display(Name ="Department")]
-        public Dept Dept { get; set; }
+        public Dept? Dept { get; set; }
     }
 }
