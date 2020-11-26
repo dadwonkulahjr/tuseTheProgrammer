@@ -14,6 +14,8 @@ namespace tuseTheProgrammer.Pages.Employees
         private readonly SQLDbContextDataAccess _sQLDbContextDataAccess;
         [BindProperty]
         public Employee Employee { get; set; }
+        public Department Department { get; set; }
+        public Gender Gender { get; set; }
         public EditModel(SQLDbContextDataAccess sQLDbContextDataAccess)
         {
             _sQLDbContextDataAccess = sQLDbContextDataAccess;
@@ -21,7 +23,9 @@ namespace tuseTheProgrammer.Pages.Employees
         public IActionResult OnGet(int id)
         {
             Employee = _sQLDbContextDataAccess.Employees.Find(id);
-            if(Employee == null)
+            Department = _sQLDbContextDataAccess.Departments.Find(id);
+            Gender = _sQLDbContextDataAccess.Genders.Find(id);
+            if (Employee == null)
             {
                 return RedirectToPage("/ErrorHandler/PageNotFound");
             }
